@@ -8,5 +8,5 @@ Reference:  Tinós, R. & Yang, S. (2019). "A Framework for Inducing Artificial C
 
 Contact: Renato Tinos <rtinos@ffclrp.usp.br>
 
-Running the code: ./iDOP_knap <tau> <rho> <change_type> <rimig_rate> <mem_rate> <N>
+
 
