@@ -16,17 +16,7 @@
 * 		DOP Type 2.2 (DOPs obtained by copying decision variables from a random solution according to a template)									  *
 * 		DOP Type 2.3 (DOPs obtained by copying decision variables from the current best solution according to a template)							  *
 * 	DOP Type 3: Single time-dependent DOPs obtained by adding fitness terms according to a template													  *	
-* 																																					  *
-* DOP types (Real):																																	  *
-* 	DOP Type 1: DOP with rotation 																												      *
-* 		DOP Type 1.1 (DOPs with rotation of the candidate solutions defined by candidate solution exchanges of the XOR type)						  *
-* 		DOP Type 1.2 (DOPs with permutation of the candidate solutions defined by decision variable exchanges according to a permutation of x)		  *
-* 		DOP Type 1.3 (DOPs with rotation of the candidate solutions defined by decision variable exchanges according to template)					  *
-* 	DOP Type 2: Single time-dependent DOP obtained by copy of decision variables																	  *
-* 		DOP Type 2.1 (DOPs obtained by copying elements of the decision variables in vector x)														  *
-* 		DOP Type 2.2 (DOPs obtained by copying decision variables from a random solution according to a template)									  *
-* 		DOP Type 2.3 (DOPs obtained by copying decision variables from the current best solution according to a template)							  *
-* 	DOP Type 3: Single time-dependent DOPs obtained by adding fitness terms according to a template													  *		
+* 																																					  *												  *		
 \*****************************************************************************************************************************************************/
 
 
@@ -110,7 +100,7 @@ double dop::transform( int *x ,  int *x_new){
 	} 
 	else if (change_type==2){
 		// DOP Type 1.2 (DOPs with permutation of the candidate solutions defined by decision variable exchanges according to a permutation matrix)
-		// Eq. 37: observation - we don´t use a matrix B_t12 because of it costs O(l^2)
+		// Eq. 37: observation - we donÂ´t use a matrix B_t12 because of it costs O(l^2)
 		for (i=0;i<l;i++)
 			x_new[i]=x[b_t12[i]];
 		df=0.0;
@@ -139,7 +129,7 @@ double dop::transform( int *x ,  int *x_new){
 	}
 	else if (change_type==4){
 		// DOP Type 2.1 (DOPs obtained by copying elements of the decision variables according to a linear transformation)	
-		// Eq. 43: observation - we don´t use a matrix L_t21 because of it costs O(l^2)
+		// Eq. 43: observation - we donÂ´t use a matrix L_t21 because of it costs O(l^2)
 		for (i=0;i<l;i++)
 			x_new[i]=x[l_t21[i]];
 		df=0.0;
@@ -293,7 +283,7 @@ void dop::change( int change_type_p, double rho, double f_range, int *x_template
 				m_t13[perm_v[i]]=0;
 			}
 			else {					
-				s[perm_v[i]]=-1;				// -1 indicates don´t care bits
+				s[perm_v[i]]=-1;				// -1 indicates donÂ´t care bits
 				if(i>l_minus_order2)
 					m_t13[perm_v[i]]=1;
 				else
@@ -328,7 +318,7 @@ void dop::change( int change_type_p, double rho, double f_range, int *x_template
 				m_t22[perm_v[i]]=s[perm_v[i]];
 			}
 			else {					
-				s[perm_v[i]]=-1;				// -1 indicates don´t care bits
+				s[perm_v[i]]=-1;				// -1 indicates donÂ´t care bits
 				m_t22[perm_v[i]]=random_int(0,1);
 					
 			}
@@ -346,7 +336,7 @@ void dop::change( int change_type_p, double rho, double f_range, int *x_template
 				m_t23[perm_v[i]]=x_template[perm_v[i]];
 			}
 			else {					
-				s[perm_v[i]]=-1;				// -1 indicates don´t care bits
+				s[perm_v[i]]=-1;				// -1 indicates donÂ´t care bits
 				m_t23[perm_v[i]]=x_template[perm_v[i]];
 					
 			}
@@ -363,7 +353,7 @@ void dop::change( int change_type_p, double rho, double f_range, int *x_template
 			if(i<os)			
 				s[perm_v[i]]=x_template[perm_v[i]];
 			else 					
-				s[perm_v[i]]=-1;				// -1 indicates don´t care bits					
+				s[perm_v[i]]=-1;				// -1 indicates donÂ´t care bits					
 			i++;
 		}
 		df_t30=random_dou()*(2.0*df_range)-df_range;			// observation: here, uniform distribution is used instead of normal distribution
