@@ -17,9 +17,9 @@
 * 		DOP Type 2.3 (DOPs obtained by copying decision variables from the current best solution according to a template)							  *
 * 	DOP Type 3: Single time-dependent DOPs obtained by adding fitness terms according to a template													  *	
 * 		  																																			  *	
-* For Continuous Optimization Problems, the fitness of solution x can be computed in the search algorithm using funcion:							  *													
+* For Continuous Optimization Problems, the fitness of solution x can be computed in the search algorithm using function:							  *													
 * 														  																							  *	
-* long double compFitness( doble *x , dop *DOP ){														  										  	  *	
+* long double compFitness( long double *x , dop *DOP ){														  										  	  *	
 * 		long double *x_transf, Fitness, delta_f;														  											  *	
 * 		x_transf = new long double[lcrom];														  													  *	
 * 		delta_f=DOP->transform(x, x_transf);														  											      *	
@@ -154,7 +154,7 @@ long double dop::transform( long double *x ,  long double *x_new){
 	} 
 	else if (change_type==2){
 		// DOP Type 1.2 (DOPs with permutation of the candidate solutions defined by decision variable exchanges according to a permutation matrix)
-		// Eq. 37: observation - we don´t use a matrix B_t12 because of it costs O(l^2)
+		// Eq. 37: observation - we donÂ´t use a matrix B_t12 because of it costs O(l^2)
 		for (i=0;i<l;i++)
 			x_new[i]=x[b_t12[i]];
 		df=0.0;
@@ -189,7 +189,7 @@ long double dop::transform( long double *x ,  long double *x_new){
 	}
 	else if (change_type==4){
 		// DOP Type 2.1 (DOPs obtained by copying elements of the decision variables according to a linear transformation)	
-		// Eq. 43: observation - we don´t use a matrix L_t21 because of it costs O(l^2)
+		// Eq. 43: observation - we donÂ´t use a matrix L_t21 because of it costs O(l^2)
 		for (i=0;i<l;i++)
 			x_new[i]=x[l_t21[i]];
 		df=0.0;
@@ -347,7 +347,7 @@ void dop::change( int change_type_p, long double rho, long double f_range, long 
 			if(i<os)	
 				s[perm_v[i]]=1;					// fixed variables
 			else 					
-				s[perm_v[i]]=-1;				// -1 indicates don´t variables
+				s[perm_v[i]]=-1;				// -1 indicates donÂ´t variables
 			i++;
 		}
 		// See Alg. 1 - ref. 2
@@ -398,7 +398,7 @@ void dop::change( int change_type_p, long double rho, long double f_range, long 
 				m_t22[perm_v[i]]=x_template[perm_v[i]];
 			}
 			else{						
-				s[perm_v[i]]=-1;				// -1 indicates don´t care variables
+				s[perm_v[i]]=-1;				// -1 indicates donÂ´t care variables
 				m_t22[perm_v[i]]=(long double) ( random_dou() )*(lsup-linf)+linf;	 // random between lim_inf and lim_sup
 			}
 			i++;
@@ -417,7 +417,7 @@ void dop::change( int change_type_p, long double rho, long double f_range, long 
 				m_t23[perm_v[i]]=x_template[perm_v[i]];
 			}
 			else{						
-				s[perm_v[i]]=-1;				// -1 indicates don´t care variables
+				s[perm_v[i]]=-1;				// -1 indicates donÂ´t care variables
 				m_t23[perm_v[i]]=x_template[perm_v[i]];	 // random between lim_inf and lim_sup
 			}
 			i++;
@@ -433,7 +433,7 @@ void dop::change( int change_type_p, long double rho, long double f_range, long 
 			if(i<os)			
 				s[perm_v[i]]=1;
 			else 					
-				s[perm_v[i]]=-1;				// -1 indicates don´t care bits					
+				s[perm_v[i]]=-1;				// -1 indicates donÂ´t care bits					
 			i++;
 		}
 		df_t31=random_dou()*(2.0*df_range)-df_range;			// observation: here, uniform distribution is used instead of normal distribution
