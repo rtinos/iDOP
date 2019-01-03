@@ -12,11 +12,17 @@ Contact: Renato Tinos <rtinos@ffclrp.usp.br>
 Running the code: ./iDOP_knap tau rho change_type rimig_rate mem_rate N
 
 Parameters:
+
 tau: change frequency, i.e., number of generations to change the fitness landscape
+
 rho: change severity (0.0<=rho<=1.0)
+
 change_type:change type: 0 - no change, 1 - type 1.1 , 2 - type 1.2 , 3 - type 1.3 , 4 - type 2.1 , 5 - type 2.2 ,  6 - type 2.3 , 7 - type 3, 8 - mixed
+
 rimig_rate: controls the percentage of the population replaced by random immigrants (only when immigrants algorithm is used)
+
 mem_rate: controls the percentage of the population replaced by immigrants from population memory (only when immigrants algorithm is used)
+
 N: dimension (number of items in 0-1 knapsack problem
 
 Example for running the code with 200 itens (change type 1.1, with tau=500, rho=0.001 and standard GA): 
